@@ -1,0 +1,179 @@
+@use "_variables" as *;
+
+.homePageRedesign--cta{
+  padding: 25px 0 50px;
+  &-box{
+    width: 100%;
+    max-width: 1135px;
+    margin: 0 auto;
+    border-radius: 15px;
+    // background-color: #8EA1FF;
+    background-color: transparent;
+    box-shadow: 0px 4px 20px rgba(142, 161, 255, 0.5);
+    position: relative;
+    &.blueCta{
+      &::before{
+        background-color: #073DA3;
+      }
+    }
+    &.purpleCta{
+      &::before{
+        background-color: #8EA1FF;
+      }
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      border-radius: 15px;
+    }
+  }
+  &-info{
+    width: 100%;
+    max-width: 885px;
+    margin: 0 auto ;
+    padding: 50px 0;
+    position: relative;
+    z-index: 2;
+    @include phabletToDesktopSmall{
+      padding: 20px;
+    }
+    @include mobileToPhablet{
+      padding: 20px;
+    }
+    @include maxMobile{
+      padding: 40px 20px 20px;
+    }
+  }
+  &-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 190px;
+    text-align: center;
+    border: 5px solid white;
+    img{
+      width: 100%;
+    }
+    @include maxMobile{
+      margin: 0 auto 20px;
+    }
+  }
+  &-data{
+    width: 100%;
+    max-width: 650px;
+    h3, p{
+      margin: 0;
+      color: white;
+      @include maxMobile{
+        text-align: center;
+      }
+    }
+    h3{
+      padding-bottom: 20px;
+      font-weight: bold;
+      @media (min-width: 1100px) {
+        font-size: 44px;
+      }      
+      @include mobileToPhablet{
+        padding-bottom: 10px;
+      }      
+    }
+    p{
+      font-weight: 300;
+      line-height: 1.25;
+      @media (min-width: 1100px) {
+        font-size: 28px
+      }
+      @include mobileToPhablet{
+        font-size: 15px;
+      }
+    }
+  }
+
+  // form
+  &-form{
+    width: 100%;
+    max-width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+    position: relative;
+    z-index: 2;
+    @media (min-width: 1100px) {
+      padding-bottom: 50px;
+      form{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+    @include phabletToDesktopSmall{
+      padding: 0 20px 30px;
+    }
+    @include mobileToPhablet{
+      padding: 20px;
+    }
+    @include maxMobile{
+      padding: 0 20px 40px;
+    }
+    fieldset{
+      @media (min-width: 1100px) {
+        width: 85%;
+        display: flex;
+        justify-content: center ;
+        gap: 0 15px;
+        padding: 0 0 30px;
+      }
+    }
+    form{
+      @media (min-width: 1100px) {
+        display: flex;
+        gap: 0 15px;
+      }     
+      label{
+        width: 100%;
+        text-align: center;
+        color: white;
+        a{
+          color: white;
+          text-decoration: underline;
+        }
+      }       
+      input{
+        width: 100%;
+        height: 48px;
+        border: 0;
+        padding: 0 12px;
+        border-radius: 0;
+        margin: 0 0 15px;
+        
+        &:focus-visible{
+          outline: 0;
+        }
+        &::placeholder{
+          color: #AEB6BD;
+        }
+        @media (min-width: 1100px) {
+          margin: 0 0 0;
+        }
+        &[type="button"]{
+          width: 100%;
+          background-color: #E0115F;
+          color: white;
+          font-weight: 600;
+          font-size: 16px;
+          @media (min-width: 1100px) {
+            width: 15%;
+            max-width: 115px;
+          }
+        }
+      }
+    }
+  }
+}

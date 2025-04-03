@@ -1,0 +1,105 @@
+@use "_variables" as *
+
+.homePageRedesign
+  //
+  &--whiteBlock
+    position: relative
+    z-index: 6
+    @include minTabletLandscape
+      margin-top: -15%
+    @include phabletToTablet
+      margin-top: -40px
+    @include maxPhablet
+      margin-top: -50px
+      padding-top: 20px
+    &-box
+      background-color: #fff
+      width: 100%
+      max-width: 1390px
+      min-height: 525px
+      border: 1px solid #ccc
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-flow: column
+      border-radius: 30px
+      padding: 15px 0
+      position: relative
+      z-index: 5
+      margin: 0 auto
+      @include phabletToTablet
+        padding: 20px
+        display: block
+        min-height: 0
+        width: 100%
+        max-width: 100%
+      @include maxPhablet
+        padding: 20px
+        display: block
+        min-height: 0
+      h2
+        color: #081155
+      h3, p
+        color: #073da3
+      h2
+        text-align: center
+        font-weight: 600
+        width: 100%
+        max-width: 900px
+        padding: 0 15px
+        font-size: 45px
+        line-height: 1.35
+        padding-bottom: 80px
+        margin: 0
+        @include phabletToTablet
+          font-size: 35px
+          padding-bottom: 20px
+        @include maxPhablet
+          font-size: 30px
+          padding-bottom: 30px
+        @include maxMobile
+          font-size: 28px
+          padding-bottom: 30px
+        @include maxMobilePortrait
+          font-size: 24px
+    &-nums
+      display: flex
+      justify-content: center
+      gap: 0 1%
+      width: 100%
+      padding: 0 15px
+      @include maxPhablet
+        flex-wrap: wrap
+        padding: 0 0
+        gap: 10px
+    &-num
+      text-align: center
+      width: 30%
+      @include maxPhablet
+        min-width: 45%
+        width: auto
+      h3
+        font-weight: bold
+        font-size: 80px
+        @include phabletToTablet
+          font-size: 45px
+        @include maxPhablet
+          font-size: 45px
+        @include maxMobile
+          font-size: 35px
+        @include maxMobilePortrait
+          font-size: 30px
+      p
+        font-size: 25px
+        margin: 0
+        @include phabletToTablet
+          font-size: 18px
+          line-height: 1.25
+        @include maxPhablet
+          font-size: 22px
+        @include maxMobile
+          font-size: 18px
+        @include maxMobilePortrait
+          font-size: 15px
+
+  //

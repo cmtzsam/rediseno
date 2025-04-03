@@ -1,0 +1,38 @@
+.homePageRedesign--certifications{
+  padding: 50px 0;
+  &-item{
+    display: block;
+    width: 100%;
+    .icologo{
+      background: #081155;
+      background: linear-gradient(135deg,#073da3 0,#e0115f 100%,#00d4ff 100%);
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto ;
+      img{
+        display: block;
+        max-width: 60px;
+        margin: 0 auto;
+      }
+    }
+    h3, p{
+      margin: 0;
+      color: #081155;
+    }
+    h3{
+      font-weight: bold;
+      padding: 20px 0 15px;
+      font-size: 22px;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;      
+    }
+    p{
+      font-style: italic;
+    }
+  }
+}

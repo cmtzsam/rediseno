@@ -1,0 +1,70 @@
+@use "_variables" as *
+
+.homePageRedesign
+  &--processBlock
+    background: linear-gradient(white, #efefef)
+    padding: 100px 0 80px
+    @include maxPhablet
+      padding: 50px 0
+    &-steps
+      display: flex
+      justify-content: space-around
+      padding-top: 50px
+      @include mobileToPortrait
+        flex-wrap: wrap
+      @include maxMobile
+        display: block
+        padding-top: 0px
+    &-step
+      width: 300px
+      height: 300px
+      border-radius: 50%
+      text-align: center
+      background: green
+      display: flex
+      justify-content: center      
+      align-items: center      
+      flex-flow: column
+      @include mobileToPortrait
+        width: 250px
+        height: 250px
+      @include maxMobile
+        margin: 0 auto 15px
+        transform: scale(.9)
+        &:last-child
+          margin-bottom: 0
+      &:nth-child(1)
+        background-color: #E02560
+        h3, p, a
+          color: white
+      &:nth-child(2)
+        background-color: #081155
+        h3, a
+          color: #8EA1FD
+        p
+          color: white
+      &:nth-child(3)
+        background-color: #073DA3
+        h3, a
+          color: #8EA1FD
+        p
+          color: white
+      h3
+        font-weight: 600
+        margin: 0
+      p
+        margin: 0
+        padding: 15px 30px
+        font-size: 15px
+      a
+        display: block
+        width: 100%
+        margin: 0 auto
+        color: white
+        padding: 10px
+        border: 1px solid
+        text-decoration: none
+        max-width: 130px
+        font-size: 15px  
+        margin-top: 10px
+

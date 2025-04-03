@@ -1,0 +1,122 @@
+.homePageRedesign--oferta{
+  padding: 80px 0;
+  background-color: #EFEFEF;
+  h2{
+    color: #081155;
+    margin-bottom: 40px;
+  }
+  .row{
+    gap: 20px 0;
+  }
+  &-programs{
+    .newpl{
+      box-shadow: 0px 4px 20px rgba(142, 161, 255, 0.24);
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: white;
+      .headnewpl{
+        display: flex;
+        align-items: flex-end;
+        padding: 15px;
+        height: 115px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        &::before{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.15);
+          z-index: 1;
+        }
+        .tiponewpl{
+          display: inline-block;
+          position: relative;
+          color: white;
+          text-decoration: none;
+          font-size: 12px;
+          background-color: #081155;
+          padding: 5px;
+          position: relative;
+          z-index: 2;
+        }
+      }
+      .titnewpl{
+        padding: 15px;
+        a, h3{
+          text-decoration: none;
+          font-size: 19px;
+          color: #153677;
+          font-weight: 600;
+          line-height: 1.5;
+        }
+      }
+      .footnewpl{
+        padding: 0 15px;
+        .tagfnewpl{
+          padding: 5px 0;
+        }
+      }
+      .bodynewpl{
+        padding: 0 15px 0;
+        &.withbtns{
+          padding: 0 15px 15px;
+          margin-top: 15px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 10px 2.5%;
+          font-size: 14px;
+          font-weight: 500;
+        }
+        .otherbtn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          width: 47%;
+          height: 35px;
+          background-color: #EFEFEF;
+          color: black;
+          text-align: center;
+          border: 1px solid transparent;
+          color: #081155;
+          font-size: 11px;
+          i{
+            display: block;
+            margin-right: 5px;
+          }
+          &.whitebtn{
+            background-color: white;
+            border-color: #081155;
+          }          
+        }
+        .newplbutton{
+          width: 100%;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 35px;
+          font-size: 15px;
+          font-weight: 400;
+          text-decoration: none;
+          background-color: #073DA3;
+          color: white;
+        }
+      }
+      .footnewpl,
+      .bodynewpl{
+        .tagfnewpl,
+        .excerptnewpl{
+          font-size: 15px;
+          line-height: 1.5;
+          color: #153677;
+        }        
+      }
+    }
+  }
+}
