@@ -16,7 +16,12 @@
     width: 100%;
     height: 720px;
     overflow: hidden;
-    background-color: white;
+    // background-color: white;
+
+    @media (min-width: 1141px){
+      display: flex;
+      justify-content: center;      
+    }
 
     @include maxDesktopSmall {
       height: auto;
@@ -105,6 +110,7 @@
   }
 
   article {
+    background-color: white;
 
     width: 0;
     height: 100%;

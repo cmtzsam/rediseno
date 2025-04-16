@@ -20,9 +20,11 @@ h2
 .homePageRedesign
 
   .container
-    @media (min-width: 768px)
+    @media (width <= 1280px)
+      max-width: 1200px
+    @media (min-width: 576px) and ( max-width: 1280px)
       max-width: 90%
-    @media (min-width: 576px)
+    @media (width <= 576px)
       max-width: 98%
     
   
