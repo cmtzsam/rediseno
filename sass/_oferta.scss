@@ -46,6 +46,9 @@
       }
       .titnewpl{
         padding: 15px;
+        @media (min-width: 991px) and (max-width: 1280px){
+          padding: 10px;
+        }        
         a, h3{
           text-decoration: none;
           font-size: 19px;
@@ -56,12 +59,18 @@
       }
       .footnewpl{
         padding: 0 15px;
+        @media (min-width: 991px) and (max-width: 1280px){
+          padding: 0 10px;
+        }        
         .tagfnewpl{
           padding: 5px 0;
         }
       }
       .bodynewpl{
         padding: 0 15px 0;
+        @media (min-width: 991px) and (max-width: 1280px){
+          padding: 0 10px;
+        }
         &.withbtns{
           padding: 0 15px 15px;
           margin-top: 15px;

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-body {
-  font-family: "Raleway", sans-serif;
-}
-
 .gray-bg {
   background-color: #dcdcdc;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
 }
 
 .homePageRedesign {
@@ -249,6 +249,11 @@ body {
 }
 .homePageRedesign--banner-txt ul li i {
   color: #091955;
+}
+@media (max-width: 575px) {
+  .homePageRedesign--banner-txt ul li i {
+    color: white;
+  }
 }
 .homePageRedesign--banner-txt ul li p {
   margin: 0 0 0 10px;
@@ -498,7 +503,7 @@ body {
     font-size: 20px;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1141px) {
   .accordionForm label span.title {
     white-space: nowrap;
     position: absolute;
@@ -542,9 +547,13 @@ body {
 }
 .accordionForm article h3 {
   font-weight: bold;
-  font-size: 37px;
   margin: 0;
   padding: 0;
+}
+@media (min-width: 1140px) {
+  .accordionForm article h3 {
+    font-size: 37px;
+  }
 }
 .accordionForm article p,
 .accordionForm article ul li {
@@ -573,7 +582,7 @@ body {
   opacity: 1;
   padding: 50px 45px;
 }
-@media (min-width: 1280px) and (max-width: 1440px) {
+@media (min-width: 1140px) and (max-width: 1440px) {
   .accordionForm div > input:checked ~ article {
     width: 500px;
     padding: 25px;
@@ -602,11 +611,16 @@ body {
 }
 
 .homePageRedesign--programSectionBlock {
-  padding: 80px 0 120px;
+  padding: 60px 0;
   position: relative;
   background-image: url("https://placehold.co/1920x1080");
   background-position: center center;
   background-size: cover;
+}
+@media (min-width: 1140px) {
+  .homePageRedesign--programSectionBlock {
+    padding: 80px 0 120px;
+  }
 }
 .homePageRedesign--programSectionBlock::before {
   content: "";
@@ -638,7 +652,7 @@ body {
 }
 .homePageRedesign--programSectionBlock-program {
   width: 100%;
-  height: 240px;
+  min-height: 240px;
   background: white;
   border-radius: 10px;
   position: relative;
@@ -648,9 +662,19 @@ body {
   flex-flow: column;
   justify-content: flex-start;
 }
+@media (max-width: 575px) {
+  .homePageRedesign--programSectionBlock-program {
+    padding: 30px;
+  }
+}
 @media (width > 1100px) {
   .homePageRedesign--programSectionBlock-program {
     width: 30%;
+  }
+}
+@media (561px < width < 1100px) {
+  .homePageRedesign--programSectionBlock-program {
+    width: 45%;
   }
 }
 .homePageRedesign--programSectionBlock-program h3,
@@ -659,8 +683,12 @@ body {
   z-index: 3;
 }
 .homePageRedesign--programSectionBlock-program p {
-  font-size: 19px;
   line-height: 1.75;
+}
+@media (min-width: 1280px) {
+  .homePageRedesign--programSectionBlock-program p {
+    font-size: 19px;
+  }
 }
 .homePageRedesign--programSectionBlock-program h3 {
   font-weight: 600;
@@ -671,6 +699,12 @@ body {
   color: #091955;
   position: relative;
   font-size: 22px;
+}
+@media (max-width: 575px) {
+  .homePageRedesign--programSectionBlock-program h3 {
+    flex-flow: column-reverse;
+    align-items: flex-start;
+  }
 }
 .homePageRedesign--programSectionBlock-program h3 a {
   color: #091955;
@@ -1169,6 +1203,11 @@ body {
 .homePageRedesign--oferta-programs .newpl .titnewpl {
   padding: 15px;
 }
+@media (min-width: 991px) and (max-width: 1280px) {
+  .homePageRedesign--oferta-programs .newpl .titnewpl {
+    padding: 10px;
+  }
+}
 .homePageRedesign--oferta-programs .newpl .titnewpl a, .homePageRedesign--oferta-programs .newpl .titnewpl h3 {
   text-decoration: none;
   font-size: 19px;
@@ -1179,11 +1218,21 @@ body {
 .homePageRedesign--oferta-programs .newpl .footnewpl {
   padding: 0 15px;
 }
+@media (min-width: 991px) and (max-width: 1280px) {
+  .homePageRedesign--oferta-programs .newpl .footnewpl {
+    padding: 0 10px;
+  }
+}
 .homePageRedesign--oferta-programs .newpl .footnewpl .tagfnewpl {
   padding: 5px 0;
 }
 .homePageRedesign--oferta-programs .newpl .bodynewpl {
   padding: 0 15px 0;
+}
+@media (min-width: 991px) and (max-width: 1280px) {
+  .homePageRedesign--oferta-programs .newpl .bodynewpl {
+    padding: 0 10px;
+  }
 }
 .homePageRedesign--oferta-programs .newpl .bodynewpl.withbtns {
   padding: 0 15px 15px;
@@ -1338,11 +1387,25 @@ body {
 
 h2 {
   font-weight: bold;
-  font-size: 45px;
   padding: 0 0 40px;
   text-align: center;
 }
+@media (min-width: 1140px) {
+  h2 {
+    font-size: 45px;
+  }
+}
 
+@media (min-width: 768px) {
+  .homePageRedesign .container {
+    max-width: 90%;
+  }
+}
+@media (min-width: 576px) {
+  .homePageRedesign .container {
+    max-width: 98%;
+  }
+}
 .homePageRedesign--areasBlock {
   background: #efefef;
   padding: 80px 0;
@@ -1378,9 +1441,14 @@ h2 {
   flex-flow: column;
   justify-content: center;
 }
-@media (width > 1100px) {
+@media (width >= 1141px) {
   .homePageRedesign--areasBlock-area {
     width: 22%;
+  }
+}
+@media (650px < width < 1141px) {
+  .homePageRedesign--areasBlock-area {
+    width: 45%;
   }
 }
 .homePageRedesign--areasBlock-area .icobg {

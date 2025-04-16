@@ -82,7 +82,7 @@
         font-size: 20px;
       }
       &.title {
-        @include minDesktop1280 {
+        @media (min-width: 1141px) {
           white-space: nowrap;
           position: absolute;
           bottom: 0;
@@ -127,9 +127,11 @@
 
     h3 {
       font-weight: bold;
-      font-size: 37px;
       margin: 0;
-      padding: 0
+      padding: 0;
+      @include minDesktopSmall{
+        font-size: 37px;
+      }
     }
 
     p,
@@ -168,7 +170,7 @@
     opacity: 1;
     padding: 50px 45px;
 
-    @include desktop1280ToBig {
+    @include desktopSmallToBig {
       width: 500px;
       padding: 25px;
 
@@ -201,11 +203,14 @@
 }
 
 .homePageRedesign--programSectionBlock {
-  padding: 80px 0 120px;
+  padding: 60px 0;
   position: relative;
   background-image: url("https://placehold.co/1920x1080");
   background-position: center center;
   background-size: cover;
+  @include minDesktopSmall{
+    padding: 80px 0 120px;
+  }
 
   &::before {
     content: "";
@@ -241,7 +246,7 @@
 
   &-program {
     width: 100%;
-    height: 240px;
+    min-height: 240px;
     background: white;
     border-radius: 10px;
     position: relative;
@@ -250,9 +255,15 @@
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
+    @include maxMobile{
+      padding: 30px;
+    }
 
     @media (width > 1100px) {
       width: 30%;
+    }
+    @media (561px < width < 1100px) {
+      width: 45%;
     }
 
     h3,
@@ -262,8 +273,10 @@
     }
 
     p {
-      font-size: 19px;
       line-height: 1.75;
+      @include minDesktop1280{
+        font-size: 19px;
+      }
     }
 
     h3 {
@@ -275,6 +288,11 @@
       color: #091955;
       position: relative;
       font-size: 22px;
+
+      @include maxMobile{
+        flex-flow: column-reverse;
+        align-items: flex-start;
+      }
 
       a {
         color: #091955;
