@@ -11,6 +11,10 @@
 }
 
 .accordionForm {
+  display: none;
+  @media (max-width: 767px){
+    display: block;
+  }
   form {
     position: relative;
     width: 100%;
@@ -281,7 +285,7 @@
     p {
       line-height: 1.75;
       @include minDesktop1280{
-        font-size: 19px;
+        font-size: 17px;
       }
     }
 

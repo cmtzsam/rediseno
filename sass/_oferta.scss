@@ -51,10 +51,21 @@
         }        
         a, h3{
           text-decoration: none;
-          font-size: 19px;
+          font-size: 20px;
           color: #153677;
           font-weight: 600;
           line-height: 1.5;
+        }
+        h3{
+          @media (min-width: 1024px){
+            min-height: 60px;
+            max-height: 60px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Número de líneas a mostrar (ajustable) */
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+          }
         }
       }
       .footnewpl{
@@ -124,7 +135,17 @@
           font-size: 15px;
           line-height: 1.5;
           color: #153677;
-        }        
+        }  
+        .excerptnewpl{
+          @media (min-width: 1024px){
+            height: 80px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Número de líneas a mostrar (ajustable) */
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+          }          
+        }
       }
     }
   }
