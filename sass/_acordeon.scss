@@ -8,8 +8,54 @@
       margin-bottom: 20px;
     }
   }
-}
 
+  .tabsForDesktop{
+    .btn.btn-primary{
+      display: block;
+      width: 100%;
+      border-radius: 2px;
+      background-color: #091955;
+      color: white;
+      border: 1px solid #091955;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 17px;
+      padding: 15px;
+      text-align: left;
+      box-shadow: inset 0px 5px 6px #6879b6;
+      transform: scale(1)!important;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    .collapse{
+      .card{
+        width: 100%;
+        border-radius: 4px;
+        padding: 30px;
+        img{
+          width: 100%;
+          border-radius: 2px;
+        }
+        h3{
+          font-weight: bold;
+          font-size: 40px;
+        }
+        ul{
+          li{
+            padding-right: 40px;
+          }
+        }
+      }
+    }
+  }
+
+}
+.tabsForDesktop{
+  @media (max-width: 767px){
+    display: none;
+  }
+}
 .accordionForm {
   display: none;
   @media (max-width: 767px){
