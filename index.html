@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="vendors/swiper/swiper-bundle.css" />
 
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="css/animations.css">
+  <!-- <link rel="stylesheet" href="css/animations.css"> -->
 
 </head>
 
@@ -29,9 +29,16 @@
 
     <div class="homePageRedesign">
       <div class="homePageRedesign--banner ">
-
         <div class="homePageRedesign--banner-bg ">
-          <!-- <img src="https://learn.maestriasydiplomados.tec.mx/hubfs/imagen%20fondo.jpg" alt="Banner"> -->
+          <img src="images/bgimg.png" alt="Fondo" class="bgpic">
+          <div class="starfield-container">
+            <div class="starfield"></div>
+          </div>
+          <div class="imgs3d">
+            <img src="images/im34.png" alt="" class="first">
+            <img src="images/img3d3.png" alt="" class="second">
+            <img src="images/icon3d2.png" alt="" class="third">
+          </div>
         </div>
         <div class="homePageRedesign--banner-txt ">
           <h1 class="text-center">
@@ -42,15 +49,15 @@
           </h2>
           <ul>
             <li>
-              <i class="bi bi-check-circle"></i>
+              <i class="bi bi-check-circle text-white"></i>
               <p>Certificaciones</p>
             </li>
             <li>
-              <i class="bi bi-check-circle"></i>
+              <i class="bi bi-check-circle text-white"></i>
               <p>Profesores con experiencia</p>
             </li>
             <li>
-              <i class="bi bi-check-circle"></i>
+              <i class="bi bi-check-circle text-white"></i>
               <p>Flexibilidad de horarios</p>
             </li>
           </ul>
@@ -59,10 +66,8 @@
             <button>Continuar</button>
           </form>
         </div>
-
       </div>
-
-      <div class="homePageRedesign--whiteBlock  d-none ">
+      <div class="homePageRedesign--whiteBlock">
         <div class="container-fluid">
           <div class="homePageRedesign--whiteBlock-box">
             <h2>Forma parte de una comunidad de profesionales en la universidad privada #1 de México</h2>
@@ -87,7 +92,7 @@
       </div>
 
 
-      <div class="homePageRedesign--processBlock d-none">
+      <div class="homePageRedesign--processBlock ">
         <div class="container">
           <h2 class="text-center">Comienza tu proceso de aprendizaje</h2>
           <div class="homePageRedesign--processBlock-steps">
@@ -215,21 +220,21 @@
                     box-shadow: inset 0px 5px 6px #f5a2aa;
                     transition: all 0.3s ease;
                   }
-                  
+
                   /* Estilos para las animaciones de los tabs */
                   .homePageRedesign--modalidadesBlock .tabsForDesktop .btn.btn-primary {
                     transition: all 0.3s ease;
                     /* transform: scale(1); */
                   }
-                  
+
                   .homePageRedesign--modalidadesBlock .tabsForDesktop .btn.btn-primary:hover {
                     /* transform: scale(1.05); */
                   }
-                  
+
                   .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse {
                     transition: opacity 0.3s ease;
                   }
-                  
+
                   /* Mejoras de animación para los elementos internos */
                   .homePageRedesign--modalidadesBlock .card-body article h3,
                   .homePageRedesign--modalidadesBlock .card-body article h4,
@@ -421,151 +426,7 @@
               </div>
             </div>
 
-            <script>
 
-              document.addEventListener('DOMContentLoaded', () => {
-                const thebtnstabs = document.querySelectorAll('.homePageRedesign--modalidadesBlock .tabsForDesktop .btn');
-                const thetabstabs = document.querySelectorAll('.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse');
-                
-                // Función para aplicar animaciones a los elementos del tab activo
-                function animateActiveTabContent(tabElement) {
-                  // Seleccionar elementos a animar dentro del tab
-                  const heading = tabElement.querySelector('h3');
-                  const percentageValues = tabElement.querySelectorAll('h4');
-                  const descriptions = tabElement.querySelectorAll('p');
-                  const lists = tabElement.querySelectorAll('li');
-                  const image = tabElement.querySelector('img');
-                  
-                  // Resetear las propiedades de animación
-                  if (heading) heading.style.opacity = '0';
-                  percentageValues.forEach(el => el.style.opacity = '0');
-                  descriptions.forEach(el => el.style.opacity = '0');
-                  lists.forEach(el => el.style.opacity = '0');
-                  if (image) image.style.opacity = '0';
-                  
-                  // Aplicar animaciones secuencialmente
-                  setTimeout(() => {
-                    if (heading) {
-                      heading.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                      heading.style.opacity = '1';
-                      heading.style.transform = 'translateY(0)';
-                    }
-                  }, 100);
-                  
-                  // Animar porcentajes con un efecto de conteo
-                  setTimeout(() => {
-                    percentageValues.forEach((el, index) => {
-                      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                      el.style.opacity = '1';
-                      el.style.transform = 'translateY(0)';
-                      
-                      // Efecto de conteo para números si contienen un valor numérico
-                      const span = el.querySelector('span');
-                      if (span && !isNaN(parseInt(span.textContent))) {
-                        const targetValue = parseInt(span.textContent);
-                        let startValue = 0;
-                        const duration = 1000; // 1 segundo
-                        const increment = Math.ceil(targetValue / (duration / 16)); // Ajustar para animación fluida
-                        
-                        const counter = setInterval(() => {
-                          startValue += increment;
-                          if (startValue >= targetValue) {
-                            span.textContent = targetValue;
-                            clearInterval(counter);
-                          } else {
-                            span.textContent = startValue;
-                          }
-                        }, 16);
-                      }
-                    });
-                  }, 300);
-                  
-                  // Animar descripciones
-                  setTimeout(() => {
-                    descriptions.forEach((el, index) => {
-                      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                      el.style.opacity = '1';
-                      el.style.transform = 'translateY(0)';
-                    });
-                  }, 500);
-                  
-                  // Animar listas con efecto stagger
-                  lists.forEach((el, index) => {
-                    setTimeout(() => {
-                      el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                      el.style.opacity = '1';
-                      el.style.transform = 'translateX(0)';
-                    }, 700 + (index * 100)); // Retraso escalonado para cada elemento
-                  });
-                  
-                  // Animar imagen
-                  setTimeout(() => {
-                    if (image) {
-                      image.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                      image.style.opacity = '1';
-                      image.style.transform = 'scale(1)';
-                    }
-                  }, 900);
-                }
-                
-                // Establecer estilos iniciales para todos los tabs
-                thetabstabs.forEach(tab => {
-                  const heading = tab.querySelector('h3');
-                  const percentageValues = tab.querySelectorAll('h4');
-                  const descriptions = tab.querySelectorAll('p');
-                  const lists = tab.querySelectorAll('li');
-                  const image = tab.querySelector('img');
-                  
-                  if (heading) {
-                    heading.style.opacity = '0';
-                    heading.style.transform = 'translateY(20px)';
-                  }
-                  
-                  percentageValues.forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(15px)';
-                  });
-                  
-                  descriptions.forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateY(15px)';
-                  });
-                  
-                  lists.forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.transform = 'translateX(20px)';
-                  });
-                  
-                  if (image) {
-                    image.style.opacity = '0';
-                    // image.style.transform = 'scale(0.95)';
-                  }
-                });
-                
-                // Aplicar animaciones al tab inicial
-                const initialTab = document.querySelector('.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse.show');
-                if (initialTab) {
-                  animateActiveTabContent(initialTab);
-                }
-                
-                // Event listeners para cambiar de tabs
-                Array.from(thebtnstabs).forEach((btn) => {
-                  btn.addEventListener('click', (e) => {
-                    // class active to the btn
-                    thebtnstabs.forEach((btn) => btn.classList.remove('active-style')); // Remove "active-style" from all buttons
-                    e.currentTarget.classList.add('active-style'); // Add "active-style" to the clicked button
-                    // class active to the articles parents
-                    thetabstabs.forEach((tab) => tab.classList.remove('show')); // Hide all tabs
-                    const index = Array.from(thebtnstabs).indexOf(e.currentTarget); // Get the index of the clicked button
-                    thetabstabs[index].classList.add('show'); // Show the corresponding tab
-                    
-                    // Aplicar animaciones al nuevo tab activo
-                    animateActiveTabContent(thetabstabs[index]);
-                  });
-                });
-              })
-
-            </script>
           </div>
 
           <div class="accordionForm">
@@ -783,33 +644,33 @@
             const lists = article.querySelectorAll('li');
             const image = article.querySelector('img');
             const percentageValues = article.querySelectorAll('h4');
-            
+
             // Preparar animaciones
             if (heading) {
               heading.style.opacity = '0';
               heading.style.transform = 'translateY(15px)';
             }
-            
+
             paragraphs.forEach(p => {
               p.style.opacity = '0';
               p.style.transform = 'translateY(10px)';
             });
-            
+
             lists.forEach(li => {
               li.style.opacity = '0';
               li.style.transform = 'translateX(15px)';
             });
-            
+
             if (image) {
               image.style.opacity = '0';
               // image.style.transform = 'scale(0.95)';
             }
-            
+
             percentageValues.forEach(val => {
               val.style.opacity = '0';
               val.style.transform = 'translateY(10px)';
             });
-            
+
             // Aplicar animaciones en secuencia
             setTimeout(() => {
               if (heading) {
@@ -818,14 +679,14 @@
                 heading.style.transform = 'translateY(0)';
               }
             }, 100);
-            
+
             setTimeout(() => {
               percentageValues.forEach((val, idx) => {
                 setTimeout(() => {
                   val.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                   val.style.opacity = '1';
                   val.style.transform = 'translateY(0)';
-                  
+
                   // Efecto contador para números
                   const span = val.querySelector('span');
                   if (span && !isNaN(parseInt(span.textContent))) {
@@ -833,7 +694,7 @@
                     let startValue = 0;
                     const duration = 1000;
                     const increment = Math.ceil(targetValue / (duration / 16));
-                    
+
                     const counter = setInterval(() => {
                       startValue += increment;
                       if (startValue >= targetValue) {
@@ -847,7 +708,7 @@
                 }, idx * 100);
               });
             }, 300);
-            
+
             setTimeout(() => {
               paragraphs.forEach((p, idx) => {
                 setTimeout(() => {
@@ -857,7 +718,7 @@
                 }, idx * 100);
               });
             }, 500);
-            
+
             setTimeout(() => {
               lists.forEach((li, idx) => {
                 setTimeout(() => {
@@ -867,7 +728,7 @@
                 }, idx * 100);
               });
             }, 700);
-            
+
             setTimeout(() => {
               if (image) {
                 image.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
@@ -1450,10 +1311,10 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
 
   <!-- Script personalizado para animaciones de tabs -->
-  <script src="js/tabs-animation.js"></script>
+  <!-- <script src="js/tabs-animation.js"></script> -->
   <script src="js/percentage-counter.js"></script>
 
-  <script>
+  <!-- <script>
 
     // Iniciar las animaciones cuando el DOM esté cargado
     document.addEventListener("DOMContentLoaded", function () {
@@ -1827,7 +1688,26 @@
 
 
     });
+  </script> -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero scale-down mientras el segundo bloque sube
+    gsap.to(".homePageRedesign--banner", {
+      scale: 0.92,
+      y: -30,
+      opacity: 0,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: ".homePageRedesign--whiteBlock",
+        start: "50% 75%",  // 👈 empieza el efecto más abajo, al scrollear más
+        end: "top 25%",    // 👈 más espacio para completar el efecto
+        scrub: true,
+      }
+    });
+
   </script>
+
   <script>
     const programas = [
       {
@@ -1938,8 +1818,183 @@
     `;
       contenedor.appendChild(col);
     });
-  </script>
 
+
+    const nbElements = 30; // Número de estrellas y destellos
+
+    const shapes = ['star', 'star'];
+    const sizes = ['', 'medium', 'small'];
+    const styles = ['', 'alt', 'alt2'];
+    const animations = ['pulse', 'pulse-1', 'pulse-2', 'pulse-3'];
+
+    const container = document.querySelector('.homePageRedesign--banner-bg .starfield');
+
+    if (container) {
+      for (let i = 0; i < nbElements; i++) {
+        const el = document.createElement('div');
+
+        el.className = [
+          shapes[rand(0, shapes.length)],
+          sizes[rand(0, sizes.length)],
+          styles[rand(0, styles.length)],
+          animations[rand(0, animations.length)]
+        ].join(' ').trim();
+
+        el.style.position = 'absolute';
+        el.style.top = rand(0, 100) + '%';
+        el.style.left = rand(0, 100) + '%';
+
+        container.appendChild(el);
+      }
+    }
+
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const thebtnstabs = document.querySelectorAll('.homePageRedesign--modalidadesBlock .tabsForDesktop .btn');
+      const thetabstabs = document.querySelectorAll('.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse');
+
+      // Función para aplicar animaciones a los elementos del tab activo
+      function animateActiveTabContent(tabElement) {
+        // Seleccionar elementos a animar dentro del tab
+        const heading = tabElement.querySelector('h3');
+        const percentageValues = tabElement.querySelectorAll('h4');
+        const descriptions = tabElement.querySelectorAll('p');
+        const lists = tabElement.querySelectorAll('li');
+        const image = tabElement.querySelector('img');
+
+        // Resetear las propiedades de animación
+        if (heading) heading.style.opacity = '0';
+        percentageValues.forEach(el => el.style.opacity = '0');
+        descriptions.forEach(el => el.style.opacity = '0');
+        lists.forEach(el => el.style.opacity = '0');
+        if (image) image.style.opacity = '0';
+
+        // Aplicar animaciones secuencialmente
+        setTimeout(() => {
+          if (heading) {
+            heading.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            heading.style.opacity = '1';
+            heading.style.transform = 'translateY(0)';
+          }
+        }, 100);
+
+        // Animar porcentajes con un efecto de conteo
+        setTimeout(() => {
+          percentageValues.forEach((el, index) => {
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+
+            // Efecto de conteo para números si contienen un valor numérico
+            const span = el.querySelector('span');
+            if (span && !isNaN(parseInt(span.textContent))) {
+              const targetValue = parseInt(span.textContent);
+              let startValue = 0;
+              const duration = 1000; // 1 segundo
+              const increment = Math.ceil(targetValue / (duration / 16)); // Ajustar para animación fluida
+
+              const counter = setInterval(() => {
+                startValue += increment;
+                if (startValue >= targetValue) {
+                  span.textContent = targetValue;
+                  clearInterval(counter);
+                } else {
+                  span.textContent = startValue;
+                }
+              }, 16);
+            }
+          });
+        }, 300);
+
+        // Animar descripciones
+        setTimeout(() => {
+          descriptions.forEach((el, index) => {
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          });
+        }, 500);
+
+        // Animar listas con efecto stagger
+        lists.forEach((el, index) => {
+          setTimeout(() => {
+            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+          }, 700 + (index * 100)); // Retraso escalonado para cada elemento
+        });
+
+        // Animar imagen
+        setTimeout(() => {
+          if (image) {
+            image.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            image.style.opacity = '1';
+            image.style.transform = 'scale(1)';
+          }
+        }, 900);
+      }
+
+      // Establecer estilos iniciales para todos los tabs
+      thetabstabs.forEach(tab => {
+        const heading = tab.querySelector('h3');
+        const percentageValues = tab.querySelectorAll('h4');
+        const descriptions = tab.querySelectorAll('p');
+        const lists = tab.querySelectorAll('li');
+        const image = tab.querySelector('img');
+
+        if (heading) {
+          heading.style.opacity = '0';
+          heading.style.transform = 'translateY(20px)';
+        }
+
+        percentageValues.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(15px)';
+        });
+
+        descriptions.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(15px)';
+        });
+
+        lists.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateX(20px)';
+        });
+
+        if (image) {
+          image.style.opacity = '0';
+          // image.style.transform = 'scale(0.95)';
+        }
+      });
+
+      // Aplicar animaciones al tab inicial
+      const initialTab = document.querySelector('.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse.show');
+      if (initialTab) {
+        animateActiveTabContent(initialTab);
+      }
+
+      // Event listeners para cambiar de tabs
+      Array.from(thebtnstabs).forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          // class active to the btn
+          thebtnstabs.forEach((btn) => btn.classList.remove('active-style')); // Remove "active-style" from all buttons
+          e.currentTarget.classList.add('active-style'); // Add "active-style" to the clicked button
+          // class active to the articles parents
+          thetabstabs.forEach((tab) => tab.classList.remove('show')); // Hide all tabs
+          const index = Array.from(thebtnstabs).indexOf(e.currentTarget); // Get the index of the clicked button
+          thetabstabs[index].classList.add('show'); // Show the corresponding tab
+
+          // Aplicar animaciones al nuevo tab activo
+          animateActiveTabContent(thetabstabs[index]);
+        });
+      });
+    })
+
+  </script>
 </body>
 
 </html>
