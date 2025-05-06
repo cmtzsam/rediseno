@@ -6,14 +6,13 @@
 
 body {
   font-family: "Raleway", sans-serif;
-  background-color: #01164e;
+  background-color: #000e4d;
 }
 
 .homePageRedesign {
   position: relative;
 }
 .homePageRedesign--banner {
-  position: sticky;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -43,7 +42,7 @@ body {
           justify-content: center;
   width: 100%;
   height: 100%;
-  background: #01164e;
+  background: #000e4d;
   overflow: hidden;
 }
 .homePageRedesign--banner-bg .bgpic {
@@ -58,31 +57,30 @@ body {
           mask-image: linear-gradient(to top, #01164e 90%, transparent);
 }
 .homePageRedesign--banner-bg .imgs3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  gap: 0 10px;
-  z-index: 4;
-  padding-bottom: 15px;
-}
-@media (max-width: 1024px) {
-  .homePageRedesign--banner-bg .imgs3d {
-    display: none;
-  }
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .homePageRedesign--banner-bg .imgs3d img {
   display: block;
-  position: relative;
-  height: auto;
-  max-width: 200px;
+  width: 100%;
+  max-width: 300px;
 }
 .homePageRedesign--banner-bg .imgs3d img.second {
-  margin-bottom: 80px;
-  max-width: 250px;
+  margin-bottom: 160px;
+  max-width: 350px;
 }
 @media (max-width: 1024px) {
   .homePageRedesign--banner-bg .starfield {
@@ -387,8 +385,6 @@ body {
   background: #FFF;
   -webkit-transform: scale(1);
           transform: scale(1);
-  width: 5px;
-  height: 5px;
 }
 .sparkle.alt {
   background: #FFF;
@@ -396,6 +392,11 @@ body {
 .sparkle.alt2 {
   background: #FFF;
 }
+.sparkle .medium {
+  width: 5px;
+  height: 5px;
+}
+
 .small {
   width: 2px;
   height: 2px;

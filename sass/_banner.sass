@@ -4,7 +4,6 @@
   position: relative
   // Banner
   &--banner
-    position: sticky
     top: 0
     left: 0
     overflow: hidden
@@ -21,7 +20,7 @@
       justify-content: center
       width: 100%
       height: 100%
-      background: #01164e
+      background: #000e4d
       overflow: hidden
       .bgpic
         position: absolute
@@ -31,22 +30,22 @@
         bottom: -25%
         mask-image: linear-gradient(to top,#01164e 90%,transparent)
       .imgs3d
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 5
         display: flex
-        position: relative
-        align-items: flex-end
-        gap: 0 10px
-        z-index: 4
-        padding-bottom: 15px
-        @media (max-width: 1024px)
-          display: none
+        align-items: center
+        justify-content: center
         img
           display: block
-          position: relative
-          height: auto
-          max-width: 200px
+          width: 100%
+          max-width: 300px
           &.second
-            margin-bottom: 80px
-            max-width: 250px
+            margin-bottom: 160px          
+            max-width: 350px
       .starfield
         @media (max-width: 1024px)
           display: none
@@ -252,9 +251,9 @@ $color-3: #FFF
   
 
   .medium
-  // transform: scale(0.5)
-  width: 5px
-  height: 5px
+    // transform: scale(0.5)
+    width: 5px
+    height: 5px
 
 .small
   // transform: scale(0.1)
