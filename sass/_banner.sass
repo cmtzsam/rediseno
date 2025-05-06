@@ -7,6 +7,7 @@
     top: 0
     left: 0
     overflow: hidden
+    background-color: #000e4d
     @media (min-width: 1024px)
       min-height: 960px
       max-height: 1180px
@@ -68,11 +69,23 @@
       //   @include maxPhablet
       //     width: auto
       //     min-height: 100%
+    .capacitext
+      font-weight: bold
+      font-size: 30px
+      margin: 0 0 
+      padding: 60px 0 20px
     &-form
       width: 100%
-      max-width: 590px
+      max-width: 500px
       display: flex
-      padding-top: 50px
+      border-radius: 6px
+      box-shadow: none
+      transition: all .2s linear
+      &:active,
+      &:hover,
+      &:focus,
+      &:focus-visible
+        box-shadow: 0px 0px 15px 5px #7faafc52
       @include phabletToTablet
         padding: 15px 0 50px
       @include maxPhablet
@@ -80,27 +93,42 @@
       @include maxMobile
         padding: 20px 0 80px
       input, button
-        height: 60px
+        height: 50px
         border-radius: 0
         border: 0
         font-size: 20px
       input
         width: 100%
         max-width: 480px
-        padding: 0 15px 0 40px
+        padding: 0 15px 0 
         font-weight: 500
+        font-size: 15px
+        border: 3px solid #5e96ff
+        outline: 0!important
+        border-top-left-radius: 5px
+        border-bottom-left-radius: 5px
+        background-color: #010d4d
+        color: white
         @include maxMobile
           font-size: 13px
           padding-left: 15px
         &::placeholder
-          color: #073DA3
+          color: #fff
       button
         width: 100%
-        max-width: 150px
+        max-width: 50px
         text-align: center
-        background-color: #073DA3
+        background-color: #5e96ff
         color: white
         font-weight: 600
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 18px
+        border: 1px solid #5e96ff
+        border-top-right-radius: 5px
+        border-bottom-right-radius: 5px     
+        outline: 0!important   
         @include maxMobile
           max-width: 100px
           font-size: 14px
@@ -109,13 +137,15 @@
       height: 100%
       margin: 0 auto
       position: absolute
-      padding-top: 10%
+      padding-top: 7%
       left: 0
       z-index: 3
       display: flex
       align-items: center
       justify-content: flex-start
       flex-flow: column
+      // transition: transform 0.3s ease, opacity 0.3s ease
+      // will-change: transform, opacity      
       @include maxDesktopSmall
         padding: 15px
       @include maxTabletPortrait
@@ -128,6 +158,13 @@
         top: 0
         left: 0
         padding: 15px 
+      .impulsatext
+        font-weight: 600
+        font-size: 25px
+        padding: 50px 0 0
+        margin: 0 0 15px
+        span
+          text-decoration: underline
       h1, h2, p
         color: white
       h1
@@ -135,6 +172,8 @@
         font-weight: bold
         max-width: 1150px
         margin: 0 auto
+        line-height: 1.25
+        position: relative
         @include phabletToTablet
           font-size: 40px
         @include mobileToPhablet
@@ -144,10 +183,32 @@
         @include maxMobilePortrait
           font-size: 28px
           padding: 0 10px
+        span
+          position: relative
+          padding-bottom: 3px
+          display: inline-block
+          &::before
+            content: ''
+            position: absolute
+            bottom: 10px
+            z-index: -1
+            left: 0
+            width: 0
+            height: 7px
+            background: linear-gradient(to right, #2855a9, #73a2f9, #285fc6)
+            animation: expandWidth 0.5s ease-in-out forwards
+          &:nth-child(1)::before
+            animation-delay: 0s
+          &:nth-child(2)::before
+            animation-delay: 0.75s
+
+      @keyframes expandWidth
+        100%
+          width: 100%
       h2
-        font-size: 32px
-        font-weight: 700
-        padding: 20px 0 50px
+        font-size: 30px
+        font-weight: 500
+        padding: 50px 0
         @include phabletToTablet
           font-size: 30px
           font-weight: 500    
@@ -186,7 +247,7 @@
             &:last-child
               margin-bottom: 0
           i
-            color: #091955
+            color: #5e96ff!important
             @include maxMobile
               color: white
           p

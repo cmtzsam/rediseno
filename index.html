@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-MX">
 
 <head>
   <title>Homepage</title>
@@ -31,7 +31,7 @@
       <div class="homePageRedesign--banner ">
         <div class="homePageRedesign--banner-txt ">
           <h1 class="text-center">
-            ¡Impulsa tu carrera con nuestros programas especializados!
+            ¡<span>Impulsa tu carrera</span> con nuestros <span>programas especializados</span>!
           </h1>
           <h2 class="text-center">
             Experiencias de aprendizaje flexibles, innovadoras y personalizadas.
@@ -50,9 +50,22 @@
               <p>Flexibilidad de horarios</p>
             </li>
           </ul>
+          <style>
+            .typewriter {
+              display: inline-block;
+              white-space: nowrap;
+              overflow: hidden;
+              border-right: 2px solid white;
+              /* opcional: cursor */
+            }
+          </style>
+          <p class="impulsatext">Encuentra un: <span id="typewriter-target"></span></p>
           <form action="#!" class="homePageRedesign--banner-form">
             <input type="text" placeholder="¿Qué quieres aprender?">
-            <button>Continuar</button>
+            <button>
+              <i class="bi bi-search"></i>
+              &nbsp;
+            </button>
           </form>
         </div>
       </div>
@@ -1256,24 +1269,82 @@
     crossorigin="anonymous"></script>
 
 
-    
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger);
-  
+
+    // Crear el pin
     ScrollTrigger.create({
       trigger: ".homePageRedesign--banner",
       start: "top top",
       end: "bottom+=100 top",
       pin: true,
-      pinSpacing: false, // si quieres que el siguiente bloque lo sobreponga visualmente
-      markers: false // ponlo en true para debug
+      pinSpacing: false,
     });
+
+    // Animación del texto mientras aparece el bloque blanco
+    gsap.to(".homePageRedesign--banner-txt", {
+      scrollTrigger: {
+        trigger: ".stats-section",
+        start: "top top", // cuando empieza a entrar el bloque blanco
+        end: "20% center",   // cuando ya está bien visible
+        scrub: true
+      },
+      scale: 0.5,
+      opacity: 0,
+      top: "15%",
+      ease: "none",
+      transformOrigin: "center center"
+    });
+
+    const palabras = ["Curso", "Certificado", "Certificación", "Diplomado", "Microcertificado","Especialización"];
+    const span = document.getElementById("typewriter-target");
+    let index = 0;
+
+    function escribir(texto, callback) {
+      const letras = texto.split("");
+      let tl = gsap.timeline({ onComplete: callback });
+
+      letras.forEach((letra, i) => {
+        tl.to(span, {
+          duration: 0.07,
+          textContent: texto.slice(0, i + 1),
+          ease: "none"
+        });
+      });
+    }
+
+    function borrar(callback) {
+      const textoActual = span.textContent;
+      const letras = textoActual.split("");
+      let tl = gsap.timeline({ onComplete: callback });
+
+      letras.forEach((_, i) => {
+        tl.to(span, {
+          duration: 0.07,
+          textContent: textoActual.slice(0, letras.length - i - 1),
+          ease: "none"
+        });
+      });
+    }
+
+    function loop() {
+      escribir(palabras[index], () => {
+        gsap.delayedCall(1.2, () => {
+          borrar(() => {
+            index = (index + 1) % palabras.length;
+            loop();
+          });
+        });
+      });
+    }
+
+    loop();
+
   </script>
-  
+
 </body>
 
 </html>

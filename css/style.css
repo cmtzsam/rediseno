@@ -6,7 +6,6 @@
 
 body {
   font-family: "Raleway", sans-serif;
-  background-color: #000e4d;
 }
 
 .homePageRedesign {
@@ -16,6 +15,7 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
+  background-color: #000e4d;
 }
 @media (min-width: 1024px) {
   .homePageRedesign--banner {
@@ -106,13 +106,27 @@ body {
     position: absolute;
   }
 }
+.homePageRedesign--banner .capacitext {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 0 0;
+  padding: 60px 0 20px;
+}
 .homePageRedesign--banner-form {
   width: 100%;
-  max-width: 590px;
+  max-width: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 50px;
+  border-radius: 6px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.homePageRedesign--banner-form:active, .homePageRedesign--banner-form:hover, .homePageRedesign--banner-form:focus, .homePageRedesign--banner-form:focus-visible {
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(127, 170, 252, 0.3215686275);
+          box-shadow: 0px 0px 15px 5px rgba(127, 170, 252, 0.3215686275);
 }
 @media (min-width: 766px) and (max-width: 991px) {
   .homePageRedesign--banner-form {
@@ -130,7 +144,7 @@ body {
   }
 }
 .homePageRedesign--banner-form input, .homePageRedesign--banner-form button {
-  height: 60px;
+  height: 50px;
   border-radius: 0;
   border: 0;
   font-size: 20px;
@@ -138,8 +152,15 @@ body {
 .homePageRedesign--banner-form input {
   width: 100%;
   max-width: 480px;
-  padding: 0 15px 0 40px;
+  padding: 0 15px 0;
   font-weight: 500;
+  font-size: 15px;
+  border: 3px solid #5e96ff;
+  outline: 0 !important;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #010d4d;
+  color: white;
 }
 @media (max-width: 575px) {
   .homePageRedesign--banner-form input {
@@ -148,27 +169,41 @@ body {
   }
 }
 .homePageRedesign--banner-form input::-webkit-input-placeholder {
-  color: #073DA3;
+  color: #fff;
 }
 .homePageRedesign--banner-form input::-moz-placeholder {
-  color: #073DA3;
+  color: #fff;
 }
 .homePageRedesign--banner-form input:-ms-input-placeholder {
-  color: #073DA3;
+  color: #fff;
 }
 .homePageRedesign--banner-form input::-ms-input-placeholder {
-  color: #073DA3;
+  color: #fff;
 }
 .homePageRedesign--banner-form input::placeholder {
-  color: #073DA3;
+  color: #fff;
 }
 .homePageRedesign--banner-form button {
   width: 100%;
-  max-width: 150px;
+  max-width: 50px;
   text-align: center;
-  background-color: #073DA3;
+  background-color: #5e96ff;
   color: white;
   font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  border: 1px solid #5e96ff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: 0 !important;
 }
 @media (max-width: 575px) {
   .homePageRedesign--banner-form button {
@@ -181,7 +216,7 @@ body {
   height: 100%;
   margin: 0 auto;
   position: absolute;
-  padding-top: 10%;
+  padding-top: 7%;
   left: 0;
   z-index: 3;
   display: -webkit-box;
@@ -219,6 +254,15 @@ body {
     padding: 15px;
   }
 }
+.homePageRedesign--banner-txt .impulsatext {
+  font-weight: 600;
+  font-size: 25px;
+  padding: 50px 0 0;
+  margin: 0 0 15px;
+}
+.homePageRedesign--banner-txt .impulsatext span {
+  text-decoration: underline;
+}
 .homePageRedesign--banner-txt h1, .homePageRedesign--banner-txt h2, .homePageRedesign--banner-txt p {
   color: white;
 }
@@ -227,6 +271,8 @@ body {
   font-weight: bold;
   max-width: 1150px;
   margin: 0 auto;
+  line-height: 1.25;
+  position: relative;
 }
 @media (min-width: 766px) and (max-width: 991px) {
   .homePageRedesign--banner-txt h1 {
@@ -249,10 +295,46 @@ body {
     padding: 0 10px;
   }
 }
+.homePageRedesign--banner-txt h1 span {
+  position: relative;
+  padding-bottom: 3px;
+  display: inline-block;
+}
+.homePageRedesign--banner-txt h1 span::before {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  z-index: -1;
+  left: 0;
+  width: 0;
+  height: 7px;
+  background: -webkit-gradient(linear, left top, right top, from(#2855a9), color-stop(#73a2f9), to(#285fc6));
+  background: linear-gradient(to right, #2855a9, #73a2f9, #285fc6);
+  -webkit-animation: expandWidth 0.5s ease-in-out forwards;
+          animation: expandWidth 0.5s ease-in-out forwards;
+}
+.homePageRedesign--banner-txt h1 span:nth-child(1)::before {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.homePageRedesign--banner-txt h1 span:nth-child(2)::before {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+}
+@-webkit-keyframes expandWidth {
+  100% {
+    width: 100%;
+  }
+}
+@keyframes expandWidth {
+  100% {
+    width: 100%;
+  }
+}
 .homePageRedesign--banner-txt h2 {
-  font-size: 32px;
-  font-weight: 700;
-  padding: 20px 0 50px;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 50px 0;
 }
 @media (min-width: 766px) and (max-width: 991px) {
   .homePageRedesign--banner-txt h2 {
@@ -330,7 +412,7 @@ body {
   }
 }
 .homePageRedesign--banner-txt ul li i {
-  color: #091955;
+  color: #5e96ff !important;
 }
 @media (max-width: 575px) {
   .homePageRedesign--banner-txt ul li i {
