@@ -13,6 +13,8 @@
       max-height: 1180px
     @media (max-width: 1024px)
       padding-top: 50px
+    @include maxMobile
+      padding-top: 25px!important
     &-bg
       position: absolute
       z-index: 2
@@ -163,6 +165,9 @@
         font-size: 25px
         padding: 50px 0 0
         margin: 0 0 15px
+        @include maxMobile
+          padding-top: 15px
+          font-size: 17px
         span
           text-decoration: underline
       h1, h2, p
@@ -187,6 +192,8 @@
           position: relative
           padding-bottom: 3px
           display: inline-block
+          @media (max-width: 767px)
+            display: unset
           &::before
             content: ''
             position: absolute
@@ -197,10 +204,13 @@
             height: 7px
             background: linear-gradient(to right, #2855a9, #73a2f9, #285fc6)
             animation: expandWidth 0.5s ease-in-out forwards
+            @media (max-width: 767px)
+              display: none            
           &:nth-child(1)::before
             animation-delay: 0s
           &:nth-child(2)::before
             animation-delay: 0.75s
+
 
       @keyframes expandWidth
         100%
@@ -220,7 +230,7 @@
           font-size: 22px
           font-weight: 500
           line-height: 1.5
-          padding-bottom: 10px
+          padding: 20px 0
       ul
         display: flex
         justify-content: center

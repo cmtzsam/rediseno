@@ -28,6 +28,11 @@ body {
     padding-top: 50px;
   }
 }
+@media (max-width: 575px) {
+  .homePageRedesign--banner {
+    padding-top: 25px !important;
+  }
+}
 .homePageRedesign--banner-bg {
   position: absolute;
   z-index: 2;
@@ -260,6 +265,12 @@ body {
   padding: 50px 0 0;
   margin: 0 0 15px;
 }
+@media (max-width: 575px) {
+  .homePageRedesign--banner-txt .impulsatext {
+    padding-top: 15px;
+    font-size: 17px;
+  }
+}
 .homePageRedesign--banner-txt .impulsatext span {
   text-decoration: underline;
 }
@@ -300,6 +311,11 @@ body {
   padding-bottom: 3px;
   display: inline-block;
 }
+@media (max-width: 767px) {
+  .homePageRedesign--banner-txt h1 span {
+    display: unset;
+  }
+}
 .homePageRedesign--banner-txt h1 span::before {
   content: "";
   position: absolute;
@@ -312,6 +328,11 @@ body {
   background: linear-gradient(to right, #2855a9, #73a2f9, #285fc6);
   -webkit-animation: expandWidth 0.5s ease-in-out forwards;
           animation: expandWidth 0.5s ease-in-out forwards;
+}
+@media (max-width: 767px) {
+  .homePageRedesign--banner-txt h1 span::before {
+    display: none;
+  }
 }
 .homePageRedesign--banner-txt h1 span:nth-child(1)::before {
   -webkit-animation-delay: 0s;
@@ -354,7 +375,7 @@ body {
     font-size: 22px;
     font-weight: 500;
     line-height: 1.5;
-    padding-bottom: 10px;
+    padding: 20px 0;
   }
 }
 .homePageRedesign--banner-txt ul {
