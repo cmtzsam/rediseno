@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function animatePercentages(container) {
       // Seleccionar todos los elementos h4 que contienen spans con porcentajes
       const percentElements = container.querySelectorAll('h4 span');
+      console.log(percentElements);
       
       percentElements.forEach(span => {
         // Verificar si el contenido es un número

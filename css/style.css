@@ -33,6 +33,28 @@ body {
     padding-top: 25px !important;
   }
 }
+.homePageRedesign--banner-content {
+  position: relative;
+  z-index: 3;
+}
+.homePageRedesign--banner-arts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+.homePageRedesign--banner-arts img.imgart {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 90%;
+  margin: 0% auto 0;
+  height: auto;
+  opacity: 0.05;
+}
 .homePageRedesign--banner-bg {
   position: absolute;
   z-index: 2;
@@ -87,28 +109,24 @@ body {
   margin-bottom: 160px;
   max-width: 350px;
 }
-@media (max-width: 1024px) {
-  .homePageRedesign--banner-bg .starfield {
-    display: none;
-  }
-}
-.homePageRedesign--banner-bg .starfield-container {
-  z-index: 3;
+.homePageRedesign--banner .starfield {
   position: absolute;
-  width: 100%;
-  height: 50%;
-  left: 0;
-  bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  overflow: hidden;
 }
-@media (max-width: 991px) {
-  .homePageRedesign--banner-bg {
-    position: absolute;
+.homePageRedesign--banner .starfield img {
+  position: relative;
+  display: block;
+  width: 100%;
+  top: 15%;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(100%, #000), color-stop(transparent), color-stop(20%, rgba(0, 0, 0, 0.05)));
+  -webkit-mask-image: linear-gradient(transparent, #000 100%, transparent, rgba(0, 0, 0, 0.05) 20%);
+  mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(100%, #000), color-stop(transparent), color-stop(20%, rgba(0, 0, 0, 0.05)));
+  mask-image: linear-gradient(transparent, #000 100%, transparent, rgba(0, 0, 0, 0.05) 20%);
+}
+@media (max-width: 766px) {
+  .homePageRedesign--banner .starfield img {
+    width: auto;
+    min-height: 100%;
   }
 }
 .homePageRedesign--banner .capacitext {
@@ -128,6 +146,7 @@ body {
           box-shadow: none;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
+  margin: 0 auto;
 }
 .homePageRedesign--banner-form:active, .homePageRedesign--banner-form:hover, .homePageRedesign--banner-form:focus, .homePageRedesign--banner-form:focus-visible {
   -webkit-box-shadow: 0px 0px 15px 5px rgba(127, 170, 252, 0.3215686275);
@@ -264,6 +283,7 @@ body {
   font-size: 25px;
   padding: 50px 0 0;
   margin: 0 0 15px;
+  text-align: center;
 }
 @media (max-width: 575px) {
   .homePageRedesign--banner-txt .impulsatext {
@@ -445,10 +465,16 @@ body {
 }
 
 .starfield {
-  width: 500px;
+  width: 100%;
   height: 100%;
   position: relative;
   z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .star {
@@ -587,9 +613,9 @@ body {
 .homePageRedesign--whiteBlock-box {
   background-color: #fff;
   width: 100%;
-  max-width: 1390px;
+  min-width: 1180px;
   min-height: 525px;
-  border: 1px solid #ccc;
+  border: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -604,6 +630,7 @@ body {
       -ms-flex-flow: column;
           flex-flow: column;
   border-radius: 30px;
+  border-radius: 0;
   padding: 15px 0;
   position: relative;
   z-index: 5;
@@ -625,22 +652,21 @@ body {
     min-height: 0;
   }
 }
-.homePageRedesign--whiteBlock-box h2 {
-  color: #081155;
-}
 .homePageRedesign--whiteBlock-box h3, .homePageRedesign--whiteBlock-box p {
   color: #073da3;
 }
 .homePageRedesign--whiteBlock-box h2 {
+  color: #081155;
   text-align: center;
   font-weight: 600;
   width: 100%;
-  max-width: 900px;
+  max-width: 800px;
   padding: 0 15px;
-  font-size: 45px;
-  line-height: 1.35;
+  font-size: 40px;
+  line-height: 1.2;
   padding-bottom: 80px;
   margin: 0;
+  font-weight: bold;
 }
 @media (min-width: 766px) and (max-width: 991px) {
   .homePageRedesign--whiteBlock-box h2 {
@@ -674,7 +700,9 @@ body {
           justify-content: center;
   gap: 0 1%;
   width: 100%;
+  max-width: 1024px;
   padding: 0 15px;
+  margin: 0 auto;
 }
 @media (max-width: 766px) {
   .homePageRedesign--whiteBlock-nums {
@@ -2102,6 +2130,80 @@ h2 {
 }
 .homePageRedesign--modalidadesBlock {
   padding: 80px 0;
-  background-color: #F9F9F9;
+  background-image: url(../images/vecbg.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+.homePageRedesign--modalidadesBlock h2 {
+  color: white;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 100%;
+  height: auto;
+  font-weight: 700;
+  text-align: left;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material.btn-active {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material span {
+  display: block;
+  font-size: 0.9em;
+  font-weight: normal;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card {
+  position: relative;
+  background-color: transparent;
+  z-index: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  z-index: 2;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article {
+  position: relative;
+  z-index: 3;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h3, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h4, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article p, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article ul, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article ul li {
+  color: white;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h3, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h4 {
+  text-shadow: 0 1px 2px #fff;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h3 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
