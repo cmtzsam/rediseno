@@ -66,7 +66,6 @@ h2
       .icobg
         position: absolute
         z-index: 1
-        opacity: .15
         font-size: 4.5rem
         right: 20px
         top: 10px
@@ -97,38 +96,76 @@ h2
 
   &--modalidadesBlock
     padding: 80px 0
-    background-image: url(../images/vecbg.jpg)
+    background-color: #fff
+    border-top: 1px solid #ddd
+    // background-image: url(../images/vecbg.jpg)
     background-position: center center
     background-size: cover
     h2
-      color: white
+      color: #083da3
     .tabsForDesktop
       .btn-material
         display: flex
         flex-flow: column
         width: 100%
         height: auto
-        // max-width: 300px
         font-weight: 700
         text-align: left
         color: #fff
         text-decoration: none
-        // margin-bottom: 2px
         padding: 20px
         border: 1px solid rgba(255, 255, 255, 0)
         border-radius: 10px
         font-size: 16px
-        background: rgba(255, 255, 255, 0)
-        transition: all 0.3s ease
+        position: relative
+        background-color: transparent
+        &::before
+          content: ""
+          position: absolute
+          width: 100%
+          height: 100%
+          top: 0
+          left: 0
+          background-image: url(../images/vecbg.jpg)
+          background-position: 100% center
+          background-size: cover
+          border-radius: 5px
+          z-index: 1
+          opacity: 0
+          filter: blur(2px)
+        // background: rgba(255, 255, 255, 0)
+        // background-image: ''
+        // transition: all 0.3s ease
+        // background-position: center center
+        // background-size: cover
         &:hover
-          background: rgba(255, 255, 255, 0.10)
+          &::before
+            opacity: 0.15          
+          // background: rgba(255, 255, 255, 0.10)
+          // background-image: url(../images/vecbg.jpg)
+    
         &.btn-active
-          background: rgba(255, 255, 255, 0.2)
+          // background: rgba(255, 255, 255, 0.2)
+          // background-image: url(../images/vecbg.jpg)
           border-color: rgba(255, 255, 255, 0.12)
+          &::before
+            opacity: 0.75
+          span
+            color: white
+            // filter: blur(5px)
         span
+          position: relative
+          z-index: 2
+          color: #073DA3
+        span.titlebtn
           display: block
-          font-size: .9em
+          font-size: 1.4em
+          font-weight: 700
+        span.descbtn
+          display: block
+          font-size: 1em
           font-weight: normal
+          display: none
 
 
       .collapse 
@@ -136,8 +173,8 @@ h2
           position: relative
           background-color: transparent
           z-index: 0
-          border: 1px solid rgba(255, 255, 255, 0.12)
-          border-radius: 10px
+          border: 1px solid #dbdbdb
+          border-radius: 7px
           &::before
             content: ""
             position: absolute
@@ -152,9 +189,10 @@ h2
           article
             position: relative
             z-index: 3
-            h3,h4, p, ul, ul li
-              color: white
+            h4, p, ul, ul li
+              color: #333
             h3, h4
+              color: #073DA3
               text-shadow: 0 1px 2px #fff
             h3
               font-weight: 600

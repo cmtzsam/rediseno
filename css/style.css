@@ -613,7 +613,6 @@ body {
 .homePageRedesign--whiteBlock-box {
   background-color: #fff;
   width: 100%;
-  min-width: 1180px;
   min-height: 525px;
   border: 0;
   display: -webkit-box;
@@ -635,6 +634,11 @@ body {
   position: relative;
   z-index: 5;
   margin: 0 auto;
+}
+@media (width >= 1280px) {
+  .homePageRedesign--whiteBlock-box {
+    min-width: 1180px;
+  }
 }
 @media (min-width: 766px) and (max-width: 991px) {
   .homePageRedesign--whiteBlock-box {
@@ -1035,7 +1039,7 @@ body {
 .homePageRedesign--programSectionBlock {
   padding: 60px 0;
   position: relative;
-  background-image: url("https://placehold.co/1920x1080");
+  background-image: url("https://learn.maestriasydiplomados.tec.mx/hubfs/vec-files/bannerprogramas.jpg");
   background-position: center center;
   background-size: cover;
 }
@@ -1079,7 +1083,7 @@ body {
 }
 .homePageRedesign--programSectionBlock-program {
   width: 100%;
-  min-height: 240px;
+  min-height: 160px;
   background: white;
   border-radius: 10px;
   position: relative;
@@ -2092,7 +2096,6 @@ h2 {
 .homePageRedesign--areasBlock-area .icobg {
   position: absolute;
   z-index: 1;
-  opacity: 0.15;
   font-size: 4.5rem;
   right: 20px;
   top: 10px;
@@ -2130,12 +2133,13 @@ h2 {
 }
 .homePageRedesign--modalidadesBlock {
   padding: 80px 0;
-  background-image: url(../images/vecbg.jpg);
+  background-color: #fff;
+  border-top: 1px solid #ddd;
   background-position: center center;
   background-size: cover;
 }
 .homePageRedesign--modalidadesBlock h2 {
-  color: white;
+  color: #083da3;
 }
 .homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material {
   display: -webkit-box;
@@ -2155,28 +2159,59 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0);
   border-radius: 10px;
   font-size: 16px;
-  background: rgba(255, 255, 255, 0);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  position: relative;
+  background-color: transparent;
 }
-.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material:hover {
-  background: rgba(255, 255, 255, 0.1);
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(../images/vecbg.jpg);
+  background-position: 100% center;
+  background-size: cover;
+  border-radius: 5px;
+  z-index: 1;
+  opacity: 0;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material:hover::before {
+  opacity: 0.15;
 }
 .homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material.btn-active {
-  background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.12);
 }
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material.btn-active::before {
+  opacity: 0.75;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material.btn-active span {
+  color: white;
+}
 .homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material span {
+  position: relative;
+  z-index: 2;
+  color: #073DA3;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material span.titlebtn {
   display: block;
-  font-size: 0.9em;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+.homePageRedesign--modalidadesBlock .tabsForDesktop .btn-material span.descbtn {
+  display: block;
+  font-size: 1em;
   font-weight: normal;
+  display: none;
 }
 .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card {
   position: relative;
   background-color: transparent;
   z-index: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 7px;
 }
 .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card::before {
   content: "";
@@ -2195,10 +2230,11 @@ h2 {
   position: relative;
   z-index: 3;
 }
-.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h3, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h4, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article p, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article ul, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article ul li {
-  color: white;
+.homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h4, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article p, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article ul, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article ul li {
+  color: #333;
 }
 .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h3, .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h4 {
+  color: #073DA3;
   text-shadow: 0 1px 2px #fff;
 }
 .homePageRedesign--modalidadesBlock .tabsForDesktop .collapse .card article h3 {
