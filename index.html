@@ -1745,6 +1745,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
   <script src="js/percentage-counter.js"></script>
+
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
@@ -1881,9 +1882,6 @@
     loop();
 
 
-
-
-
     // Rest of site
     // Animación para los pasos del bloque de proceso
     gsap.fromTo(
@@ -1951,15 +1949,169 @@
       }
     );
 
+ // Animar cada bloque CTA independientemente
+      document.querySelectorAll('.homePageRedesign--cta-box').forEach((ctaBox, index) => {
+
+        // Fade general del box
+        gsap.from(ctaBox, {
+          scrollTrigger: {
+            trigger: ctaBox,
+            start: "top 85%",
+          },
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          ease: "power2.out"
+        });
+
+        // Imagen desde la izquierda
+        const img = ctaBox.querySelector('.homePageRedesign--cta-img');
+        if (img) {
+          gsap.from(img, {
+            scrollTrigger: {
+              trigger: ctaBox,
+              start: "top 85%",
+            },
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.2,
+            ease: "power2.out"
+          });
+        }
+
+        // Texto desde la derecha
+        const data = ctaBox.querySelector('.homePageRedesign--cta-data');
+        if (data) {
+          gsap.from(data, {
+            scrollTrigger: {
+              trigger: ctaBox,
+              start: "top 85%",
+            },
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.4,
+            ease: "power2.out"
+          });
+        }
+
+        // Formulario fade
+        const form = ctaBox.querySelector('form');
+        if (form) {
+          gsap.from(form, {
+            scrollTrigger: {
+              trigger: ctaBox,
+              start: "top 85%",
+            },
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.6,
+            ease: "power2.out"
+          });
+        }
+
+      });
+      
+      
+      // Fade general del contenedor de swiper
+      gsap.from(".swiperReviews", {
+        scrollTrigger: {
+          trigger: ".swiperReviews",
+          start: "top 85%",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power2.out"
+      });
+
+
+      // Animar los bloques de certificaciones en grid
+      gsap.from(".homePageRedesign--certifications-item", {
+        scrollTrigger: {
+          trigger: ".homePageRedesign--certifications",
+          start: "top 85%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: {
+          amount: 0.6,
+          from: "start"
+        },
+        ease: "power2.out"
+      });
+
+      // Animación extra opcional para los logotipos
+      gsap.from(".homePageRedesign--certifications-item .icologo img", {
+        scrollTrigger: {
+          trigger: ".homePageRedesign--certifications",
+          start: "top 85%",
+        },
+        scale: 0.6,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        delay: 0.2,
+        ease: "back.out(1.7)"
+      });
+
+      // Items del acordeón
+      gsap.from(".homePageRedesign--faqsBlock .accordion-item", {
+        scrollTrigger: {
+          trigger: ".homePageRedesign--faqsBlock .accordion",
+          start: "top 85%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power2.out"
+      });
+
 
 
   </script>
-
   <script type="module">
     import { initializeKinesis } from "/node_modules/@amineyarman/kinesis/dist/kinesis.es.js";
 
     document.addEventListener("DOMContentLoaded", () => {
       initializeKinesis();
+    });
+  </script>
+  <script type="module">
+    import Swiper from '/vendors/swiper/swiper-bundle.min.mjs';
+    const swiper = new Swiper('.swiperReviews', {
+      slidesPerView: 1,
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: false,
+      breakpoints: {
+        580: {
+          slidesPerView: 1,
+        },
+        650: {
+          slidesPerView: 2,
+        },
+        820: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+        1300: {
+          slidesPerView: 3,
+        },
+      },
     });
 
   </script>
