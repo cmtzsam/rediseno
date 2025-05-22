@@ -1377,45 +1377,91 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
   <script src="js/percentage-counter.js"></script>
 
-  <script>
+<script>
+  const MIN_SCREEN_WIDTH = 1024; // puedes ajustar este valor según lo que necesites
+
+  // =============================
+  // BLOQUE 6: Typewriter SIEMPRE
+  // =============================
+  const palabras = ["Curso", "Certificado", "Diplomado", "Microcertificado"];
+  const span = document.getElementById("typewriter-target");
+  let index = 0;
+
+  function escribir(texto, callback) {
+    const letras = texto.split("");
+    let tl = gsap.timeline({ onComplete: callback });
+
+    letras.forEach((letra, i) => {
+      tl.to(span, {
+        duration: 0.07,
+        textContent: texto.slice(0, i + 1),
+        ease: "none"
+      });
+    });
+  }
+
+  function borrar(callback) {
+    const textoActual = span.textContent;
+    const letras = textoActual.split("");
+    let tl = gsap.timeline({ onComplete: callback });
+
+    letras.forEach((_, i) => {
+      tl.to(span, {
+        duration: 0.07,
+        textContent: textoActual.slice(0, letras.length - i - 1),
+        ease: "none"
+      });
+    });
+  }
+
+  function loop() {
+    escribir(palabras[index], () => {
+      gsap.delayedCall(1.2, () => {
+        borrar(() => {
+          index = (index + 1) % palabras.length;
+          loop();
+        });
+      });
+    });
+  }
+
+  loop();
+
+  // =============================
+  // RESTO DE ANIMACIONES: solo en pantallas grandes
+  // =============================
+  if (window.innerWidth > MIN_SCREEN_WIDTH) {
     gsap.registerPlugin(ScrollTrigger);
 
-
-    gsap.fromTo(".homePageRedesign--whiteBlock-box",
-      {
-        borderRadius: "30px",
-        width: "1180px",
-        translateY: "-100px"
+    gsap.fromTo(".homePageRedesign--whiteBlock-box", {
+      borderRadius: "30px",
+      width: "1180px",
+      translateY: "-100px"
+    }, {
+      scrollTrigger: {
+        trigger: ".homePageRedesign--whiteBlock-box",
+        start: "-50% 0",
+        end: "-15% 0",
+        scrub: true
       },
-      {
-        scrollTrigger: {
-          trigger: ".homePageRedesign--whiteBlock-box",
-          start: "-50% 0",
-          end: "-15% 0",
-          scrub: true
-        },
-        borderRadius: "0px",
-        translateY: 0,
-        width: "100%"
-      });
-
+      borderRadius: "0px",
+      translateY: 0,
+      width: "100%"
+    });
 
     document.querySelectorAll("h2").forEach(h2 => {
-      gsap.fromTo(h2,
-        {
-          opacity: 0,
-          y: -100
+      gsap.fromTo(h2, {
+        opacity: 0,
+        y: -100
+      }, {
+        scrollTrigger: {
+          trigger: h2,
+          start: "-50% 80%",
+          end: "-5% 40%",
         },
-        {
-          scrollTrigger: {
-            trigger: h2,
-            start: "-50% 80%",
-            end: "-5% 40%",
-          },
-          opacity: 1,
-          y: 0
-        }
-      );
+        opacity: 1,
+        y: 0
+      });
     });
 
     document.querySelectorAll('.homePageRedesign--whiteBlock-num h3 span').forEach(span => {
@@ -1443,8 +1489,6 @@
       });
     });
 
-
-    // Crear el pin
     ScrollTrigger.create({
       trigger: ".homePageRedesign--banner",
       start: "top top",
@@ -1453,137 +1497,68 @@
       pinSpacing: false,
     });
 
-    // Animación del texto mientras aparece el bloque blanco
     gsap.to(".homePageRedesign--banner-txt", {
       scrollTrigger: {
         trigger: ".stats-section",
-        start: "top top", // cuando empieza a entrar el bloque blanco
-        end: "20% center",   // cuando ya está bien visible
+        start: "top top",
+        end: "20% center",
         scrub: true
       },
-      // scale: 0.5,
       opacity: 0,
       top: "5%",
       ease: "none",
       transformOrigin: "center center"
     });
 
-    const palabras = ["Curso", "Certificado", "Diplomado", "Microcertificado"];
-    const span = document.getElementById("typewriter-target");
-    let index = 0;
-
-    function escribir(texto, callback) {
-      const letras = texto.split("");
-      let tl = gsap.timeline({ onComplete: callback });
-
-      letras.forEach((letra, i) => {
-        tl.to(span, {
-          duration: 0.07,
-          textContent: texto.slice(0, i + 1),
-          ease: "none"
-        });
-      });
-    }
-
-    function borrar(callback) {
-      const textoActual = span.textContent;
-      const letras = textoActual.split("");
-      let tl = gsap.timeline({ onComplete: callback });
-
-      letras.forEach((_, i) => {
-        tl.to(span, {
-          duration: 0.07,
-          textContent: textoActual.slice(0, letras.length - i - 1),
-          ease: "none"
-        });
-      });
-    }
-
-    function loop() {
-      escribir(palabras[index], () => {
-        gsap.delayedCall(1.2, () => {
-          borrar(() => {
-            index = (index + 1) % palabras.length;
-            loop();
-          });
-        });
-      });
-    }
-
-    loop();
-
-
-    // Rest of site
-    // Animación para los pasos del bloque de proceso
-    gsap.fromTo(
-      ".homePageRedesign--processBlock-step",
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".homePageRedesign--processBlock-steps",
-          start: "top 80%",
-          once: true
-        }
+    gsap.fromTo(".homePageRedesign--processBlock-step", { opacity: 0, y: 60 }, {
+      opacity: 1, y: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".homePageRedesign--processBlock-steps",
+        start: "top 80%",
+        once: true
       }
-    );
-    gsap.fromTo(
-      ".homePageRedesign--areasBlock-area",
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".homePageRedesign--areasBlock",
-          start: "top 80%",
-          once: true
-        }
-      }
-    );
-    gsap.fromTo(
-      ".homePageRedesign--programSectionBlock-program",
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".homePageRedesign--programSectionBlock",
-          start: "top 80%",
-          once: true
-        }
-      }
-    );
-    gsap.fromTo(
-      ".itemProgramaOferta",
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".homePageRedesign--oferta",
-          start: "top 80%",
-          once: true
-        }
-      }
-    );
+    });
 
-    // Animar cada bloque CTA independientemente
-    document.querySelectorAll('.homePageRedesign--cta-box').forEach((ctaBox, index) => {
+    gsap.fromTo(".homePageRedesign--areasBlock-area", { opacity: 0, y: 60 }, {
+      opacity: 1, y: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".homePageRedesign--areasBlock",
+        start: "top 80%",
+        once: true
+      }
+    });
 
-      // Fade general del box
+    gsap.fromTo(".homePageRedesign--programSectionBlock-program", { opacity: 0, y: 60 }, {
+      opacity: 1, y: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".homePageRedesign--programSectionBlock",
+        start: "top 80%",
+        once: true
+      }
+    });
+
+    gsap.fromTo(".itemProgramaOferta", { opacity: 0, y: 60 }, {
+      opacity: 1, y: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".homePageRedesign--oferta",
+        start: "top 80%",
+        once: true
+      }
+    });
+
+    document.querySelectorAll('.homePageRedesign--cta-box').forEach(ctaBox => {
       gsap.from(ctaBox, {
         scrollTrigger: {
           trigger: ctaBox,
@@ -1595,7 +1570,6 @@
         ease: "power2.out"
       });
 
-      // Imagen desde la izquierda
       const img = ctaBox.querySelector('.homePageRedesign--cta-img');
       if (img) {
         gsap.from(img, {
@@ -1611,7 +1585,6 @@
         });
       }
 
-      // Texto desde la derecha
       const data = ctaBox.querySelector('.homePageRedesign--cta-data');
       if (data) {
         gsap.from(data, {
@@ -1627,7 +1600,6 @@
         });
       }
 
-      // Formulario fade
       const form = ctaBox.querySelector('form');
       if (form) {
         gsap.from(form, {
@@ -1642,11 +1614,8 @@
           ease: "power2.out"
         });
       }
-
     });
 
-
-    // Fade general del contenedor de swiper
     gsap.from(".swiperReviews", {
       scrollTrigger: {
         trigger: ".swiperReviews",
@@ -1658,8 +1627,6 @@
       ease: "power2.out"
     });
 
-
-    // Animar los bloques de certificaciones en grid
     gsap.from(".homePageRedesign--certifications-item", {
       scrollTrigger: {
         trigger: ".homePageRedesign--certifications",
@@ -1675,7 +1642,6 @@
       ease: "power2.out"
     });
 
-    // Animación extra opcional para los logotipos
     gsap.from(".homePageRedesign--certifications-item .icologo img", {
       scrollTrigger: {
         trigger: ".homePageRedesign--certifications",
@@ -1689,7 +1655,6 @@
       ease: "back.out(1.7)"
     });
 
-    // Items del acordeón
     gsap.from(".homePageRedesign--faqsBlock .accordion-item", {
       scrollTrigger: {
         trigger: ".homePageRedesign--faqsBlock .accordion",
@@ -1701,22 +1666,22 @@
       stagger: 0.2,
       ease: "power2.out"
     });
-
-
-
-  </script>
+  }
+</script>
   <!-- <script src="" type="module"></script> -->
 
     <script src="js/kinesis.umd.js"></script>
 
-<script>
-  const { initializeKinesis } = window.KinesisJS || {};
-  if (typeof initializeKinesis === 'function') {
-    document.addEventListener("DOMContentLoaded", () => {
-      initializeKinesis();
-    });
-  }
-</script>
+  <script>
+    const { initializeKinesis } = window.KinesisJS || {};
+    if (typeof initializeKinesis === 'function') {
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.innerWidth > 979) {
+          initializeKinesis();
+        }
+      });
+    }
+  </script>
   <script src="js/swiper/swiper-bundle.js"></script>
   <script>
     const swiper = new Swiper('.swiperReviews', {
