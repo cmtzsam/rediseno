@@ -159,12 +159,8 @@ body {
 }
 @media (max-width: 766px) {
   .homePageRedesign--banner-form {
-    padding: 15px 0 50px;
-  }
-}
-@media (max-width: 575px) {
-  .homePageRedesign--banner-form {
-    padding: 20px 0 80px;
+    padding: 0 0 0;
+    margin: 20px auto 40px;
   }
 }
 .homePageRedesign--banner-form input, .homePageRedesign--banner-form button {
@@ -418,6 +414,8 @@ body {
   .homePageRedesign--banner-txt ul {
     display: block;
     padding: 0;
+    max-width: 300px;
+    margin: 0 auto 30px;
   }
 }
 .homePageRedesign--banner-txt ul li {
