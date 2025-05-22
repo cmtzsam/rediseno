@@ -599,7 +599,7 @@ body {
 .homePageRedesign--whiteBlock {
   position: relative;
   z-index: 6;
-  background-color: #01164e;
+  background-color: transparent;
 }
 .homePageRedesign--whiteBlock::before {
   content: "";
