@@ -640,6 +640,11 @@ body {
     min-width: 1180px;
   }
 }
+@media (width <= 979px) {
+  .homePageRedesign--whiteBlock-box {
+    max-width: 100% !important;
+  }
+}
 @media (min-width: 766px) and (max-width: 991px) {
   .homePageRedesign--whiteBlock-box {
     padding: 20px;

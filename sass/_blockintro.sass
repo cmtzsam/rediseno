@@ -24,6 +24,7 @@
     &-box
       background-color: #fff
       width: 100%
+      
       min-height: 525px
       // border: 1px solid #ccc
       border: 0
@@ -39,6 +40,8 @@
       margin: 0 auto
       @media (width >= 1280px)
         min-width: 1180px
+      @media (width <= 979px)
+        max-width: 100%!important
       @include phabletToTablet
         padding: 20px
         display: block
